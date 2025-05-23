@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, g, session  # 添加 url_for 导入, request, redirect, url_for, session, g, flash
+from flask import Flask, render_template, url_for, g, session, request, redirect, flash  # 添加 url_for 导入, request, redirect, url_for, session, g, flash
 import json
 import os
 from db import load_users, add_user, find_user # 引入 db.py 中的函數
