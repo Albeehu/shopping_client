@@ -6,7 +6,7 @@ from db import load_users, add_user, find_user # 引入 db.py 中的函數
 app = Flask(__name__)
 app.secret_key = 'your_super_secret_key' # 在生產環境中請使用更安全的密鑰
 
-PRODUCTS_FILE = 'data/products.json'
+PRODUCTS_FILE = 'fake_store_data.json'
 
 def load_products():
     """從 JSON 檔案載入商品資料"""
