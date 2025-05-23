@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>購物網站:))))</title>
+  </head>
+  <body>
+    <h1>商品清單</h1>
+    {% for product in products %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px">
+      <h3>{{ product.title }}</h3>
+      <img src="{{ product.image }}" width="100" />
+      <p>價格：{{ product.price }} 元</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
