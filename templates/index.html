@@ -2,15 +2,12 @@
 <html>
   <head>
     <title>GOWOO!!</title>
-    <!-- 引入 CSS 文件 -->
-    <title>購物網站</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
   <body>
-    <!-- 顶部导航栏 -->
     <nav class="main-nav">
       <div class="nav-logo">GÖWOO!!</div>
       <div class="nav-links">
@@ -20,27 +17,16 @@
         <a href="#">Bathroom</a>
         <a href="#">Bedroom</a>
         <a href="#">About</a>
-        <a href="#">Customer Care</a>
-        <a href="{{ url_for('cart') }}">shopping car</a>
-        <a href="#">Contact</a>
+        <a href="{{ url_for('cart') }}">cart</a> {# Changed shopping car to cart as per image #}
         {% if g.user %}
         <span>Hello, {{ g.user['username'] }}</span>
         <a href="{{ url_for('logout') }}">logout</a>
         {% else %}
-        <a href="{{ url_for('login') }}">login</a>
+        <a href="{{ url_for('login') }}">Log in</a> {# Changed login to Log in as per image #}
         <a href="{{ url_for('register') }}">register</a>
         {% endif %}
-    <!-- <div class="navbar">
-      <h1>Shopping web</h1>
-      <div>
-        <a href="{{ url_for('index') }}">Main page</a>
-        
-         -->
       </div>
-      <div class="nav-actions">
-        <a href="#">Log in</a>
-      </div>
-    </div>
+      </nav>
 
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %}
@@ -50,6 +36,12 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %}
+
+    <div class="banner">
+      <div class="banner-content">
+        <h1>Summer Collection</h1>
+        </div>
+    </div>
 
     <div class="products-container">
       {% for product in products %}

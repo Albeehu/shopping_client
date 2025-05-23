@@ -1,44 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
-body {
-  font-family: "Montserrat", sans-serif;
-}
 
 :root {
-  --primary-color: #46a3ff; /* 添加变量定义 */
+  --primary-color: #46a3ff;
   --secondary-color: #f5f5f5;
   --accent-color: #a5b1c2;
 }
 
 body {
-  font-family: "Microsoft JhengHei", Arial, sans-serif; /* 中文友好字體 */
+  font-family: "Montserrat", "Microsoft JhengHei", Arial, sans-serif;
   background-color: #f5f5f5;
   margin: 0;
   padding: 0;
-  color: #46a3ff;
+  color: #46a3ff; /* 這個顏色會影響整個頁面，但很多地方會被具體元素覆蓋 */
 }
 
-.product-card {
-  border: 1px solid #f0f0f0;
-}
-
-/* 導航欄 */
-.navbar {
-  margin-bottom: 100px;
-  background-color: #46a3ff;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+/* 移除舊的 .navbar 相關樣式，因為 HTML 中已不再使用 */
+/* .navbar { ... } */
+/* .navbar a { ... } */
+/* .navbar a:hover { ... } */
 
 /* 主导航栏 */
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
+  padding: 1.5rem 5%; /* 調整 padding 以符合圖片 */
   background: white;
   border-bottom: 1px solid #eee;
 }
@@ -52,7 +38,13 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  /* 確保沒有 flex-direction: column; 或 writing-mode 屬性 */
+  /* 如果有，請移除或設置為預設值 */
+  /* 例如：flex-direction: row; */
+  gap: 2rem; /* 連結之間的間距 */
+  flex-grow: 1; /* 讓 nav-links 佔用更多空間，將連結推向右側 */
+  justify-content: flex-end; /* 將連結組推到右側 */
+  align-items: center; /* 垂直居中對齊 */
 }
 
 .nav-links a {
@@ -61,29 +53,26 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.9rem;
+  white-space: nowrap; /* 防止連結文字換行 */
 }
 
-.nav-actions a {
+.nav-links a:hover {
+  text-decoration: underline; /* 連結懸停效果 */
+}
+
+/* 為登入後的 Hello, username 訊息添加樣式 */
+.nav-links span {
   color: var(--primary-color);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  margin-right: 1rem; /* 與其他連結保持一定間距 */
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap; /* 防止用戶名換行 */
 }
 
-.nav-actions a:hover {
-  border-bottom: 1px solid var(--primary-color);
-}
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1.1rem;
-}
-
-.navbar a:hover {
-  color: #004b97;
-}
+/* 移除 .nav-actions 相關樣式，因為 HTML 元素已移除 */
+/* .nav-actions a { ... } */
+/* .nav-actions a:hover { ... } */
 
 .page-title {
   text-align: center;
@@ -91,10 +80,11 @@ body {
   margin: 2rem 0;
 }
 
-/* Banner区域 */
+/* Banner区域 - 背景圖需要自己設定 */
 .banner {
   margin-bottom: 60px;
-  height: 50vh;
+  height: 50vh; /* 調整高度以符合圖片範例 */
+  background-image: url('https://via.placeholder.com/1500x500/ADD8E6/FFFFFF?text=Summer+Collection+Banner'); /* 替換成您的圖片路徑 */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -103,9 +93,11 @@ body {
   text-align: center;
   color: white;
   position: relative;
+  /* 移除::after，因為圖片本身已經有足夠的暗度，或您希望圖片清晰 */
+  /* 如果需要疊加層，再重新添加 */
 }
 
-.banner::after {
+/* .banner::after {
   content: "";
   position: absolute;
   top: 0;
@@ -113,7 +105,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .banner-content {
   z-index: 1;
@@ -124,6 +116,7 @@ body {
   margin-bottom: 2rem;
   font-weight: 300;
   letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字陰影讓文字更清晰 */
 }
 
 .cta-button {
@@ -218,7 +211,7 @@ body {
   margin-top: 3rem;
 }
 
-/* 登入註冊頁面 */
+/* 登入註冊頁面 (保持不變) */
 .auth-container {
   max-width: 400px;
   margin: 4rem auto;
@@ -272,18 +265,7 @@ body {
   font-weight: bold;
 }
 
-/* 導航欄 (新增登入/註冊/登出連結的樣式) */
-.navbar div a {
-  margin-left: 1.5rem; /* 調整連結間距 */
-}
-
-.navbar div span {
-  color: white;
-  margin-right: 1rem;
-  font-size: 1.1rem;
-}
-
-/* 產品詳情頁 */
+/* 產品詳情頁 (保持不變) */
 .product-detail-container {
   max-width: 900px;
   margin: 4rem auto;
@@ -357,7 +339,7 @@ body {
   text-decoration: underline;
 }
 
-/* 購物車頁面 */
+/* 購物車頁面 (保持不變) */
 .cart-container {
   max-width: 900px;
   margin: 4rem auto;
@@ -440,7 +422,7 @@ body {
   color: #777;
 }
 
-/* 結帳頁面 */
+/* 結帳頁面 (保持不變) */
 .checkout-container {
   max-width: 700px;
   margin: 4rem auto;
@@ -484,7 +466,7 @@ body {
   color: #46a3ff;
 }
 
-/* 訂單成功頁面 */
+/* 訂單成功頁面 (保持不變) */
 .order-success-container {
   text-align: center;
   max-width: 600px;
