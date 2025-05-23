@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>購物網站:))))</title>
+    <title>購物網站</title>
+    <!-- 引入 CSS 文件 -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h1>商品清單</h1>
-    {% for product in products %}
-    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px">
-      <h3>{{ product.title }}</h3>
-      <img src="{{ product.image }}" width="100" />
-      <p>價格：{{ product.price }} 元</p>
+    <!-- 導航欄 (新增) -->
+    <div class="navbar">
+      <h1>Shopping web</h1>
+      <div>
+        <a href="#">front page</a>
+        <a href="#">list</a>
+        <a href="#">shopping car</a>
+      </div>
     </div>
-    {% endfor %}
+
+    <!-- 商品清單區 (保留你的原始結構，但加上 CSS class) -->
+    <div class="products-container">
+      <h1 class="page-title">produce</h1>
+      {% for product in products %}
+      <div class="product-card">
+        <img
+          class="product-image"
+          src="{{ product.image }}"
+          alt="{{ product.title }}"
+        />
+        <div class="product-info">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <p class="product-price">價格：{{ product.price }} 元</p>
+          <button class="btn">加入購物車</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- 頁尾 (新增) -->
+    <div class="footer">
+      <p>&copy; 2025 我的購物網站 版權所有</p>
+    </div>
   </body>
 </html>
