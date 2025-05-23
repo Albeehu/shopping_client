@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --primary-color: #46a3ff; /* 添加变量定义 */
+  --secondary-color: #f5f5f5;
+  --accent-color: #a5b1c2;
+}
+
 body {
   font-family: "Microsoft JhengHei", Arial, sans-serif; /* 中文友好字體 */
   background-color: #f5f5f5;
@@ -6,8 +17,13 @@ body {
   color: #46a3ff;
 }
 
+.product-card {
+  border: 1px solid #f0f0f0;
+}
+
 /* 導航欄 */
 .navbar {
+  margin-bottom: 100px;
   background-color: #46a3ff;
   color: white;
   padding: 1rem 2rem;
@@ -15,6 +31,47 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 主导航栏 */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.nav-actions a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-actions a:hover {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .navbar a {
@@ -25,13 +82,64 @@ body {
 }
 
 .navbar a:hover {
-  color: #f1c40f;
+  color: #004b97;
 }
 
 .page-title {
   text-align: center;
   color: #46a3ff;
   margin: 2rem 0;
+}
+
+/* Banner区域 */
+.banner {
+  margin-bottom: 60px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.banner-content {
+  z-index: 1;
+}
+
+.banner h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: white;
+  color: var(--primary-color);
 }
 
 /* 商品列表 */
@@ -70,14 +178,15 @@ body {
 }
 
 .product-title {
-  font-size: 1.2rem;
+  font-weight: 400;
+  font-size: 1.1rem;
   margin: 0 0 0.5rem 0;
-  color: #46a3ff;
+  color: #000000;
 }
 
 .product-price {
-  color: #46a3ff;
-  font-weight: bold;
+  color: #000000;
+  font-weight: 400;
   font-size: 1.1rem;
   margin: 0.5rem 0;
 }
@@ -85,7 +194,7 @@ body {
 /* 按鈕 */
 .btn {
   display: inline-block;
-  background: #af8774;
+  background: #46a3ff;
   color: white;
   padding: 0.6rem 1.2rem;
   border: none;
@@ -97,7 +206,7 @@ body {
 }
 
 .btn:hover {
-  background: #af8774;
+  background: #acd6ff;
 }
 
 /* 頁尾 */

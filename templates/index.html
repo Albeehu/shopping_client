@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>購物網站</title>
+    <title>GOWOO!!</title>
     <!-- 引入 CSS 文件 -->
     <link
       rel="stylesheet"
@@ -9,19 +9,33 @@
     />
   </head>
   <body>
-    <!-- 導航欄 (新增) -->
-    <div class="navbar">
-      <h1>Shopping web</h1>
-      <div>
-        <a href="#">front page</a>
-        <a href="#">list</a>
-        <a href="#">shopping car</a>
+    <!-- 顶部导航栏 -->
+    <nav class="main-nav">
+      <div class="nav-logo">GÖWOO!!</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Decor & Living</a>
+        <a href="#">Kitchen</a>
+        <a href="#">Bathroom</a>
+        <a href="#">Bedroom</a>
+        <a href="#">About</a>
+        <a href="#">Customer Care</a>
+        <a href="#">Contact</a>
       </div>
-    </div>
+      <div class="nav-actions">
+        <a href="#">Log in</a>
+      </div>
+    </nav>
+
+    <!-- Banner区域 -->
+    <section class="banner" style="background-image: url('{{ banner_image }}')">
+      <div class="banner-content">
+        <h1>Summer Collection</h1>
+      </div>
+    </section>
 
     <!-- 商品清單區 (保留你的原始結構，但加上 CSS class) -->
     <div class="products-container">
-      <h1 class="page-title">produce</h1>
       {% for product in products %}
       <div class="product-card">
         <img
