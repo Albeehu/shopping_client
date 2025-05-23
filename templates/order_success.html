@@ -12,7 +12,6 @@
       <h1>Shopping web</h1>
       <div>
         <a href="{{ url_for('index') }}">front page</a>
-        <a href="{{ url_for('products_list') }}">list</a>
         <a href="{{ url_for('cart') }}">shopping car</a>
         {% if g.user %}
         <span>Hello, {{ g.user['username'] }}</span>
