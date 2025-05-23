@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>註冊 - 購物網站</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Shopping web</h1>
+      <div>
+        <a href="{{ url_for('index') }}">front page</a>
+        <a href="{{ url_for('products_list') }}">list</a>
+        <a href="{{ url_for('cart') }}">shopping car</a>
+        <a href="{{ url_for('login') }}">login</a>
+      </div>
+    </div>
+
+    <div class="auth-container">
+      <h1 class="page-title">註冊</h1>
+      {% if error %}
+      <p class="error-message">{{ error }}</p>
+      {% endif %}
+      <form method="POST" action="{{ url_for('register') }}">
+        <div class="form-group">
+          <label for="username">用戶名:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">密碼:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn">註冊</button>
+      </form>
+      <p class="auth-link">
+        已有帳號？<a href="{{ url_for('login') }}">立即登入</a>
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 我的購物網站 版權所有</p>
+    </div>
+  </body>
+</html>
