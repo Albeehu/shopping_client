@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     response = requests.get("https://fakestoreapi.com/products")
+    print(response.json())
     products = response.json()
     return render_template("index.html", products=products)
 
