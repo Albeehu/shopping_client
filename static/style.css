@@ -3,12 +3,12 @@ body {
   background-color: #f5f5f5;
   margin: 0;
   padding: 0;
-  color: #482813;
+  color: #46a3ff;
 }
 
 /* 導航欄 */
 .navbar {
-  background-color: #482813;
+  background-color: #46a3ff;
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -30,7 +30,7 @@ body {
 
 .page-title {
   text-align: center;
-  color: #482813;
+  color: #46a3ff;
   margin: 2rem 0;
 }
 
@@ -72,11 +72,11 @@ body {
 .product-title {
   font-size: 1.2rem;
   margin: 0 0 0.5rem 0;
-  color: #482813;
+  color: #46a3ff;
 }
 
 .product-price {
-  color: #482813;
+  color: #46a3ff;
   font-weight: bold;
   font-size: 1.1rem;
   margin: 0.5rem 0;
@@ -104,7 +104,7 @@ body {
 .footer {
   text-align: center;
   padding: 2rem;
-  background: #482813;
+  background: #46a3ff;
   color: white;
   margin-top: 3rem;
 }
