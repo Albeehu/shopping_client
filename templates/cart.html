@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>購物車 - 購物網站</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Shopping web</h1>
+      <div>
+        <a href="{{ url_for('index') }}">front page</a>
+        <a href="{{ url_for('cart') }}">shopping car</a>
+        {% if g.user %}
+        <span>Hello, {{ g.user['username'] }}</span>
+        <a href="{{ url_for('logout') }}">logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">login</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="cart-container">
+      <h1 class="page-title">我的購物車</h1>
+      {% if cart_items %}
+      <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item-card">
+          <img
+            class="cart-item-image"
+            src="{{ item.image }}"
+            alt="{{ item.title }}"
+          />
+          <div class="cart-item-info">
+            <h3 class="cart-item-title">{{ item.title }}</h3>
+            <p class="cart-item-price">價格：{{ item.price }} 元</p>
+            <p class="cart-item-quantity">數量：{{ item.quantity }}</p>
+            <form
+              method="POST"
+              action="{{ url_for('remove_from_cart', product_id=item.id) }}"
+            >
+              <button type="submit" class="btn btn-danger">移除</button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="cart-summary">
+        <p class="cart-total">總計：{{ total_price }} 元</p>
+        <a href="{{ url_for('checkout') }}" class="btn">前往結帳</a>
+      </div>
+      {% else %}
+      <p class="empty-cart-message">您的購物車是空的。</p>
+      {% endif %}
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 我的購物網站 版權所有</p>
+    </div>
+  </body>
+</html>

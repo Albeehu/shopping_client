@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>訂單成功 - 購物網站</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Shopping web</h1>
+      <div>
+        <a href="{{ url_for('index') }}">front page</a>
+        <a href="{{ url_for('cart') }}">shopping car</a>
+        {% if g.user %}
+        <span>Hello, {{ g.user['username'] }}</span>
+        <a href="{{ url_for('logout') }}">logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">login</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="order-success-container">
+      <h1 class="page-title">訂單成功！</h1>
+      <p>感謝您的購買，您的訂單已成功送出。</p>
+      <p>我們會盡快處理您的訂單，請留意您的信箱。</p>
+      <a href="{{ url_for('products_list') }}" class="btn">繼續購物</a>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 我的購物網站 版權所有</p>
+    </div>
+  </body>
+</html>

@@ -3,6 +3,7 @@
   <head>
     <title>GOWOO!!</title>
     <!-- 引入 CSS 文件 -->
+    <title>購物網站</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
@@ -13,46 +14,71 @@
     <nav class="main-nav">
       <div class="nav-logo">GÖWOO!!</div>
       <div class="nav-links">
-        <a href="#">Home</a>
+        <a href="{{ url_for('index') }}">Home</a>
         <a href="#">Decor & Living</a>
         <a href="#">Kitchen</a>
         <a href="#">Bathroom</a>
         <a href="#">Bedroom</a>
         <a href="#">About</a>
         <a href="#">Customer Care</a>
+        <a href="{{ url_for('cart') }}">shopping car</a>
         <a href="#">Contact</a>
+        {% if g.user %}
+        <span>Hello, {{ g.user['username'] }}</span>
+        <a href="{{ url_for('logout') }}">logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">login</a>
+        <a href="{{ url_for('register') }}">register</a>
+        {% endif %}
+    <!-- <div class="navbar">
+      <h1>Shopping web</h1>
+      <div>
+        <a href="{{ url_for('index') }}">Main page</a>
+        
+         -->
       </div>
       <div class="nav-actions">
         <a href="#">Log in</a>
       </div>
-    </nav>
+    </div>
 
-    <!-- Banner区域 -->
-    <section class="banner" style="background-image: url('{{ banner_image }}')">
-      <div class="banner-content">
-        <h1>Summer Collection</h1>
-      </div>
-    </section>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="flash-messages">
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
 
-    <!-- 商品清單區 (保留你的原始結構，但加上 CSS class) -->
     <div class="products-container">
       {% for product in products %}
       <div class="product-card">
-        <img
-          class="product-image"
-          src="{{ product.image }}"
-          alt="{{ product.title }}"
-        />
+        <a href="{{ url_for('product_detail', product_id=product.id) }}">
+          <img
+            class="product-image"
+            src="{{ product.image }}"
+            alt="{{ product.title }}"
+          />
+        </a>
         <div class="product-info">
           <h3 class="product-title">{{ product.title }}</h3>
           <p class="product-price">價格：{{ product.price }} 元</p>
-          <button class="btn">加入購物車</button>
+          {% if g.user %}
+          <form
+            method="POST"
+            action="{{ url_for('add_to_cart', product_id=product.id) }}"
+          >
+            <button type="submit" class="btn">加入購物車</button>
+          </form>
+          {% else %}
+          <p class="login-prompt">請先<a href="{{ url_for('login') }}">登入</a></p>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
     </div>
 
-    <!-- 頁尾 (新增) -->
     <div class="footer">
       <p>&copy; 2025 我的購物網站 版權所有</p>
     </div>

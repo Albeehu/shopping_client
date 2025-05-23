@@ -1,4 +1,4 @@
-#!/Users/yujhen/venv/bin/python
+#!/home/haftigt_hund/Documents/projects/distributed_system_shopping_site/shopping_client/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
